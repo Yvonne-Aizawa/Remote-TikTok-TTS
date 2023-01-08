@@ -78,9 +78,9 @@ class PicoProvider(Provider):
                 # send request
                 request = await websession.post(url, json=payload)
                     # the data is base64 encoded
-                data = base64.b64decode(await request.text())
-                # log data
-                _LOGGER.debug("PicoTTS data: %s", data)
+            
+                #  remove successtrue from data
+                data = re.sub(b'success":true,', b'', data)
                 
 
                 if request.status != 200:
