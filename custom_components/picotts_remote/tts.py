@@ -93,5 +93,5 @@ class PicoProvider(Provider):
             return (None, None)
 
         if data:
-            return ("mp3", json.loads(base64.b64decode(data)))
+            return ("mp3",data)
         return (None, None)
