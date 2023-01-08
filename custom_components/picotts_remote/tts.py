@@ -88,7 +88,7 @@ class PicoProvider(Provider):
                         "Error %d on load url %s", request.status, request.url
                     )
                     return (None, None)
-                data = await request.read()
+                # data = await request.read()
 
         except (asyncio.TimeoutError, aiohttp.ClientError):
             _LOGGER.error("Timeout for PicoTTS API")
