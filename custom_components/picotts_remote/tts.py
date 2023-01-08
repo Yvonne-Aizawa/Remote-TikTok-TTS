@@ -94,8 +94,6 @@ class PicoProvider(Provider):
             return (None, None)
 
         if data:
-            _LOGGER.debug(
-                data
-            )
-            return ("mp3",data.decode("utf-8").data)
+            return "yeeet"
+            return ("mp3",data.decode("utf-8"))
         return (None, None)
