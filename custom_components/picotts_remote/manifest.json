@@ -1,7 +1,7 @@
 {
   "domain": "tiktok_tts",
   "name": "TikTokTTS (Remote)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "documentation": "https://github.com/yvonne-aizawa/Remote-TikTok-TTS/blob/master/README.md",
   "requirements": [],
   "dependencies": [],
