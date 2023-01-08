@@ -12,6 +12,7 @@ from homeassistant.components.tts import CONF_LANG, PLATFORM_SCHEMA, Provider
 from homeassistant.const import CONF_HOST, CONF_PORT
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from urllib.parse import quote
+import json;
 
 
 _LOGGER = logging.getLogger(__name__)
@@ -64,11 +65,11 @@ class PicoProvider(Provider):
         try:
             with async_timeout.timeout(5):
                 url = "https://tiktok-tts.weilnet.workers.dev/api/generation"
-                encoded_message = quote(message)
+                # encoded_message = quote(message)
 
 
                 payload = {
-                     "text": encoded_message,
+                     "text": message,
                     "voice": "en_us_010"
                           }
                 headers = {"Content-Type": "application/json"}
@@ -85,6 +86,8 @@ class PicoProvider(Provider):
                     )
                     return (None, None)
                 data = await request.read()
+                data = json.loads(data)
+                data = data['data'];
 
         except (asyncio.TimeoutError, aiohttp.ClientError):
             _LOGGER.error("Timeout for PicoTTS API")

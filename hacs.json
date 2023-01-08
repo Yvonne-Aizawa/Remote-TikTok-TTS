@@ -1,5 +1,5 @@
 {
-  "name": "Remote TikTok Os",
+  "name": "TitTok TTS",
   "render_readme": true,
   "domains": "tts",
   "homeassistant": "0.36",
