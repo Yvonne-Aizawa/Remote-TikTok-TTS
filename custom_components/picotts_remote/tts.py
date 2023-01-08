@@ -64,18 +64,20 @@ class PicoProvider(Provider):
         try:
             with async_timeout.timeout(5):
                 url = "https://tiktok-tts.weilnet.workers.dev/api/generation"
+                encoded_message = quote(message)
+
 
                 payload = {
-                     "text": message,
+                     "text": encoded_message,
                     "voice": voice
                           }
                 headers = {"Content-Type": "application/json"}
 
-                response = await requests.request("POST", url, json=payload, headers=headers)
+                # response = await requests.request("POST", url, json=payload, headers=headers)
 
-                print(response.text)
+                # print(response.text)
 
-                request = await websession.get(url, params=url_param)
+                request = await websession.get(url, payload=payload,headers=headers)
 
                 if request.status != 200:
                     _LOGGER.error(
