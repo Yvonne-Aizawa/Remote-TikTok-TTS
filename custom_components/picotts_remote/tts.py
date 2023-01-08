@@ -78,6 +78,7 @@ class PicoProvider(Provider):
                 # response = await requests.request("POST", url, json=payload, headers=headers)
 
                 print(message)
+                _LOGGER.error(message)
 
                 request = await websession.post(url,headers=headers, json=payload)
 
@@ -93,5 +94,6 @@ class PicoProvider(Provider):
             return (None, None)
 
         if data:
+            _LOGGER.error(data)
             return ("mp3",json.loads(data)["data"])
         return (None, None)
