@@ -78,11 +78,7 @@ class PicoProvider(Provider):
                 # send request
                 request = await websession.post(url, json=payload)
                     # the data is base64 encoded
-                data = base64.b64decode(await request.text())
-                #  remove successtrue from data string
-                data = re.sub(r'successtrue', data.decode("utf-8"))
-                # remove errornull from data string
-                data = re.sub(r'errornull', data.decode("utf-8"))
+                data = await request.json()["data"]                
                 
                 
 
