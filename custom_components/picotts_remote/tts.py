@@ -65,7 +65,7 @@ class PicoProvider(Provider):
         try:
             with async_timeout.timeout(5):
                 url = "https://tiktok-tts.weilnet.workers.dev/api/generation"
-                # encoded_message = quote(message)
+                message = quote(message)
 
 
                 payload = {
@@ -87,12 +87,11 @@ class PicoProvider(Provider):
                     return (None, None)
                 data = await request.read()
                 data = json.loads(data)
-                data = data['data'];
 
         except (asyncio.TimeoutError, aiohttp.ClientError):
             _LOGGER.error("Timeout for PicoTTS API")
             return (None, None)
 
         if data:
-            return ("mp3", data)
+            return ("mp3", data['data'])
         return (None, None)
