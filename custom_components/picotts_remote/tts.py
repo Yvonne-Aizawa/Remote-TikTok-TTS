@@ -1,6 +1,6 @@
 """Support for the Pico TTS speech service."""
 import logging
-
+import requests
 import asyncio
 import aiohttp
 import re
@@ -57,18 +57,23 @@ class PicoProvider(Provider):
         """Return list of supported languages."""
         return SUPPORT_LANGUAGES
 
-    async def async_get_tts_audio(self, message, language, options=None):
+    async def async_get_tts_audio(self, message, voice, options=None):
         """Load TTS using a remote pico2wave server."""
         websession = async_get_clientsession(self._hass)
 
         try:
             with async_timeout.timeout(5):
-                url = "http://{}:{}/speak?".format(self._host, self._port)
-                encoded_message = quote(message)
-                url_param = {
-                    "lang": language,
-                    "text": encoded_message,
-                }
+                url = "https://tiktok-tts.weilnet.workers.dev/api/generation"
+
+                payload = {
+                     "text": message,
+                    "voice": voice
+                          }
+                headers = {"Content-Type": "application/json"}
+
+                response = requests.request("POST", url, json=payload, headers=headers)
+
+                print(response.text)
 
                 request = await websession.get(url, params=url_param)
 

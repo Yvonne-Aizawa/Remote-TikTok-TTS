@@ -1,9 +1,9 @@
 {
-  "domain": "picotts_remote",
-  "name": "Picotts (Remote)",
+  "domain": "tiktok_tts",
+  "name": "TikTokTTS (Remote)",
   "version": "1.0.1",
-  "documentation": "https://github.com/Poeschl/Remote-PicoTTS/blob/master/README.md",
+  "documentation": "https://github.com/yvonne-aizawa/Remote-TikTok-TTS/blob/master/README.md",
   "requirements": [],
   "dependencies": [],
-  "codeowners": ["@Poeschl"]
+  "codeowners": ["@Poeschl","@yvonne-aizawa"]
 }
