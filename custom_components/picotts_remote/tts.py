@@ -93,5 +93,5 @@ class PicoProvider(Provider):
             return (None, None)
 
         if data:
-            return ("mp3", data['data'])
+            return ("mp3", data)
         return (None, None)
