@@ -71,7 +71,7 @@ class PicoProvider(Provider):
                           }
                 headers = {"Content-Type": "application/json"}
 
-                response = requests.request("POST", url, json=payload, headers=headers)
+                response = await requests.request("POST", url, json=payload, headers=headers)
 
                 print(response.text)
 
