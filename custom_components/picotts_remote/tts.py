@@ -80,7 +80,7 @@ class PicoProvider(Provider):
                 print(message)
                 _LOGGER.error(message)
 
-                request = await websession.post(url,headers=headers, json=payload)
+                request = await websession.post(url, json=payload)
 
                 if request.status != 200:
                     _LOGGER.error(
