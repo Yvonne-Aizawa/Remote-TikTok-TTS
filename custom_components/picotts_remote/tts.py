@@ -6,6 +6,7 @@ import aiohttp
 import re
 import async_timeout
 import voluptuous as vol
+import base64
 
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.tts import CONF_LANG, PLATFORM_SCHEMA, Provider
@@ -76,7 +77,7 @@ class PicoProvider(Provider):
 
                 # response = await requests.request("POST", url, json=payload, headers=headers)
 
-                # print(response.text)
+                print(message)
 
                 request = await websession.post(url,headers=headers, json=payload)
 
@@ -86,12 +87,11 @@ class PicoProvider(Provider):
                     )
                     return (None, None)
                 data = await request.read()
-                data = json.loads(data)
 
         except (asyncio.TimeoutError, aiohttp.ClientError):
             _LOGGER.error("Timeout for PicoTTS API")
             return (None, None)
 
         if data:
-            return ("mp3", data)
+            return ("mp3", json.loads(base64.b64decode(data)))
         return (None, None)
