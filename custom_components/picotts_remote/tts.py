@@ -69,7 +69,7 @@ class PicoProvider(Provider):
 
                 payload = {
                      "text": encoded_message,
-                    "voice": voice
+                    "voice": "en_us_010"
                           }
                 headers = {"Content-Type": "application/json"}
 
@@ -77,7 +77,7 @@ class PicoProvider(Provider):
 
                 # print(response.text)
 
-                request = await websession.get(url,headers=headers)
+                request = await websession.post(url,headers=headers, json=payload)
 
                 if request.status != 200:
                     _LOGGER.error(
