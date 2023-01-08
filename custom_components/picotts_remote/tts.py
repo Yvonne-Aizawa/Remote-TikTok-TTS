@@ -77,10 +77,10 @@ class PicoProvider(Provider):
                           }
                 # send request
                 request = await websession.post(url, json=payload)
-                # extract data 
-                data = await request.json()
-                # extract audio
-                data = data["data"]
+                    # the data is base64 encoded
+                data = base64.b64decode(await request.text())
+                # log data
+                _LOGGER.debug("PicoTTS data: %s", data)
                 
 
                 if request.status != 200:
