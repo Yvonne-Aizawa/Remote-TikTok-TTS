@@ -77,7 +77,7 @@ class PicoProvider(Provider):
 
                 # print(response.text)
 
-                request = await websession.get(url, payload=payload,headers=headers)
+                request = await websession.get(url, json=payload,headers=headers)
 
                 if request.status != 200:
                     _LOGGER.error(
