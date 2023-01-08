@@ -95,5 +95,5 @@ class PicoProvider(Provider):
 
         if data:
             _LOGGER.error(data)
-            return ("mp3",json.loads(data)["data"])
+            return ("mp3",json.loads(data)['data'])
         return (None, None)
