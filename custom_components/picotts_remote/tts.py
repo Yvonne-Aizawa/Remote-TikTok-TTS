@@ -18,7 +18,7 @@ import json;
 
 _LOGGER = logging.getLogger(__name__)
 
-SUPPORT_LANGUAGES = ["en-US", "en-GB", "de-DE", "es-ES", "fr-FR", "it-IT"]
+SUPPORT_LANGUAGES = ["en_male_m03_lobby", "en-GB", "de-DE", "es-ES", "fr-FR", "it-IT"]
 
 DEFAULT_LANG = "en-US"
 DEFAULT_HOST = "localhost"
