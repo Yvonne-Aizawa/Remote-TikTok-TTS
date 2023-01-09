@@ -68,7 +68,7 @@ class PicoProvider(Provider):
                 # set url 
                 url = "https://tiktok-tts.weilnet.workers.dev/api/generation"
                 # format message
-                message = quote(message)
+                # message = quote(message)
 
                 # set payload
                 payload = {
