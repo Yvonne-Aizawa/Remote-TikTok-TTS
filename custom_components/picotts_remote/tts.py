@@ -73,7 +73,7 @@ class PicoProvider(Provider):
                 # set payload
                 payload = {
                      "text": message,
-                    "voice": "en_us_010"
+                    "voice": voice
                           }
                 # send request
                 request = await websession.post(url, json=payload)
