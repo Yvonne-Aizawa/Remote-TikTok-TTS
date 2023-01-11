@@ -1,1 +1,1 @@
-"""Support for pico integration."""
+"""Support for TikTokTTS integration."""
